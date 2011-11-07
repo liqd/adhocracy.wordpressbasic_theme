@@ -1,121 +1,215 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<title>Projektgruppen - Enquete Internet und digitale Gesellschaft
-	</title>
-    <!--Adhocracy css-->
-	<link rel="stylesheet" media="all" href="./index_files/base.css" />	
-	<link rel="stylesheet" media="all" href="./index_files/site.css" />	
-	<link media="only screen and (max-device-width: 1024px)" type="text/css" rel="stylesheet" href="./index_files/ipad.css" />
-	<link media="only screen and (max-device-width: 480px)" type="text/css" rel="stylesheet" href="./index_files/iphone.css" />
-	<link rel="stylesheet" media="all and (orientation:portrait)" href="./index_files/portrait.css" />
-	<link type="text/css" media="print" rel="stylesheet" href="./index_files/print.css" /> 
-    <!--Custom theme css-->
-    <link rel="stylesheet" media="all" href="./index_files/base_custom.css" />	
-	<link rel="shortcut icon" type="image/x-icon" href="./index_files/favicon.ico" />
- 
-    <!--Adhocracy javascript-->
-	<script type="text/javascript" src="./index_files/jquery.min.js"></script>
-	<script type="text/javascript" src="./index_files/jquery.qtip.min.js"></script>
-	<script type="text/javascript" src="./index_files/jquery.autocomplete.min.js"></script>	
-	<script type="text/javascript" src="./index_files/jquery.timeago.js"></script>
-	<script type="text/javascript" src="./index_files/jquery.timeago.de.js"></script>
-	<script type="text/javascript" src="./index_files/adhocracy.js"></script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title> Instance Adhocracy</title>
+    <meta http-equiv="X-XRDS-Location" content="http://test.adhocracy.lan:5002/openid/xrds" />
+    <link rel="stylesheet" type="text/css" media="all" href="./index_files/style.css" />
+    <!--[if lte IE 7]>
+    <link href="/stylesheets/patches/patch.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <link rel="icon" href="http://adhocracy.lan:5002/favicon.ico" type="image/png" />
+    <script type="text/javascript" src="./index_files/jquery.js"></script>
+    <script type="text/javascript" src="./index_files/slides.min.jquery.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./index_files/jquery.tools.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./index_files/jquery.multipleelements.cycle.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./index_files/jquery.label_over.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./index_files/jquery.elastic.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./index_files/knockout-latest.debug.js"></script>
+    <script type="text/javascript" src="./index_files/knockout-mapping.js"></script>
+    <script type="text/javascript" src="./index_files/modernizr.js"></script>
+    <script type="text/javascript" src="./index_files/jquery.autocomplete.min.js"></script>  
+    <link rel="alternate" type="application/rss+xml" title="Test Instance News" href="http://test.adhocracy.lan:5002/instance/test.rss" />
+  </head>
 
-	<!--[if lt IE 7 ]>
-		<script type="text/javascript" 
-			src="./index_files/dd_belatedpng.js"></script>
-		<script> DD_belatedPNG.fix('img, .png_bg');</script>
-	<![endif]-->
+  <body lang="de" id="frame">
+    <div class="overlay" id="overlay-default">
+      <a class="close"></a>
+      <!-- the external content is loaded inside this tag -->
+      <div class="contentWrap"></div>
+    </div>    
+    <!-- begin: header -->
+    <header>
+    <div id="header" class="">
+      <div class="page_margins">
+        <div class="page_wrapper">
+          <!-- begin: top navi -->
+          <div id="topnav">
+            <!-- start: skip link navigation -->
+            <a class="skip" title="skip link" href="http://test.adhocracy.lan:5002/page/Test_Instance#navigation">Skip to the navigation</a><span class="hideme">.</span>
+            <a class="skip" title="skip link" href="http://test.adhocracy.lan:5002/page/Test_Instance#content">Skip to the content</a><span class="hideme">.</span>
+            <!-- end: skip link navigation -->
+            <a href="http://test.adhocracy.lan:5002/page/Test_Instance#" class="icon_link follow">Follow us!</a>
+          </div>
+          <!-- begin: logo -->
+          <a id="logo" href="http://test.adhocracy.lan:5002/" title="Adhocracy" rel="home">
+            <img src="./index_files/logo_adhocracy_de_header.png" alt="Adhocracy">
+            <h1>Adhocracy</h1>
+          </a>
+          <!-- begin: main navi -->
+          <nav>
+          <div id="nav">
+            <!-- skiplink anchor: navigation -->
+            <a id="navigation" name="navigation"></a>
+            <!-- main navigation: horizontal list -->
+            <div class="menu hlist">
+              <ul>
 
-</head>
-<body lang="de">
-	<div class="page_margins">
-		<div class="page_wrapper">		
-			<div id="header">
-				<h1><a title="zur Startseite" href="/"><img alt="Sozialdemokratische Partei Deutschlands (SPD)" src="./images/logo.png" /></a></h1>
-				<div id="account">
-					<a href="/login">Anmelden</a> | 
-					<a href="/register">Registrieren</a>	
-				</div>
+                <li class="">
+                <a href="http://adhocracy.lan:5002/" rel="" title="">Start</a>
+                </li>
+                <li class="current">
+                <a href="http://adhocracy.lan:5002/instance" rel="#overlay-default" title="">Projektgruppen</a>
+                </li>
+                <!-- FIXME: implemente About -->
+                <li class="">
+                <a href="http://test.adhocracy.lan:5002/page/Test_Instance#" rel="" title="">About</a>
+                </li>
+                <li class="" id="${id_}">
+                <a href="http://adhocracy.lan:5002/static/help.html" rel="" title="">Hilfe</a>
+                </li>
+                <!-- FIXME: implemente personal drop down menu -->
+                <li class="">
+                <a href="http://adhocracy.lan:5002/login" rel="#overlay-default" title="">Anmelden</a>
+                </li>
+                <!-- FIXME: <a href="/register">Registrieren</a> -->
+              </ul>
+            </div>
+          </div>
+          </nav>
 
-				<div id="navigation">
-					<a href="/">Startseite</a> | 
-					<a class="ttip" title="Alle Projektgruppen" href="/instance">Projektgruppen</a> | 
-					<a href="/event/all">Ereignisse</a> | 
-					<a class="ttip" title="Nutzer aller Projektgruppen" href="/user/all">Benutzer</a> | 
-					<a class="ttip" title="Badges" href="/badge">Badges</a> | 
-					<div class="help"><a href="/static/help.html">Hilfe</a></div>
-				</div>
-			</div>
-			<div id="instance_navi">
-                		<div id="instanceheader" /> 
-			</div>
+        </div>
+      </div>
+    </div>
+    </header>
 
-                        <div id="breadcrumbs">SPD »</div>
+    <div id="subheader">
+      <div class="page_margins">
+        <div class="page_wrapper">
+          <!-- begin: sub navi -->
+          <div id="organisation_logo">
+            <img src="./index_files/test_48.png" alt="“Test Instance” logo">
+            <h2>Test Instance</h2>
+          </div>
+          <!-- begin: sub navi -->
+          <nav>
+          <div class="hlist">
+            <ul id="subnav">
+              <li class="">
+              <a href="http://test.adhocracy.lan:5002/instance/test" rel="" title="">Overview</a>
+              </li>
+              <li class="">
+              <a href="http://test.adhocracy.lan:5002/proposal" rel="" title="">Diskussions</a>
+              </li>
+              <li class="current">
+              <a href="http://test.adhocracy.lan:5002/page" rel="" title="">Papiere</a>
+              </li>
+              <li class="">
+              <a href="http://test.adhocracy.lan:5002/user" rel="" title="">Mitglieder</a>
+              </li>
+            </ul>
+          </div>
+          </nav>
+          <div id="searchbox">
+            <form action="http://test.adhocracy.lan:5002/search" id="searchform" method="get">
+              <div class="label_over">
+                <label class="over-apply" for="s">Search in “Test Instance”…</label>
+                <input type="text" id="s" name="s" value="">
+              </div>
+              <input type="submit" value="Suchen" id="searchsubmit">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
-                	<div id="instance_infobox_wrapper" /> 
-		
-        		<div id="flash_messages_wrapper"></div>
+    <div id="main">
+      <div class="page_margins">
+        <div class="page_wrapper">
+          <!-- begin: page content -->
+          <div class="full_teaser">
+          </div>
+          <div id="col1">
+            <div id="col1_content" class="clearfix">
 
-        		<div id="content">
-			    <div id="content_header">
-			    	<h1 class="page_title">Nutzungsbedingungen</h1>
-			    </div>
-			    <div id="sidebar" class="sidebar">
-			    &nbsp; 
-			    </div>
-			    <div class="doc mainbar" id="mainbar-dummy">
-			    	<h3>Prmbel</h3>
-			    	<p>Mit der Anmeldung als Nutzer akzeptieren Sie die nachfolgenden Allgemeinen Geschäftsbedingungen für die Nutzung von enquetebeteiligung.de. Alle Websites, auf denen enquetebeteiligung.de die Dienste von enquetebeteiligung.de zur Verfügung stellt, werden im Folgenden insgesamt die </p>
-			    </div>
-			</div>
+              <div class="utility">
+                <h2>Test Instance</h2>
+                <a href="http://test.adhocracy.lan:5002/page/FIXME">Bearbeiten</a>
+              </div>
 
-	    		<div id="links">
-		    		<div id="license">
-					<a class="nolink" rel="liqd" href="http://liqd.net/">
-                                        <img alt="Adhocracy Code" src="./images/logo_footer_adhocracy_code.png" />
-                                        </a><br />
-					<a class="nolink" rel="liqd" href="http://liqd.net/">
-					<img alt="Liquid Democracy e.V." src="./images/logo_footer_liquid_democracy_ev.png" />
-					</a><br />
-			    		<a class="nolink" rel="license" href="http://creativecommons.org/licenses/by/3.0/de/">
-				    	<img alt="Creative Commons License" src="./images/80x15.png" />
-			    		</a>
-			    		<a class="nolink" rel="license" href="http://www.opendefinition.org/">
-				     	<img alt="Open Definition" src="./images/oc_80x15_blue.png" />
-			    		</a>
-		    		</div>
-            			<ul>
-                			<li><a href="/static/about.html">Wie funktioniert Adhocracy?</a></li>
-                			<li><a href="http://blog.liqd.net/unterstuetzen/">Projekt unterstützen</a></li>
-            			</ul>
-            			<ul>
-                			<li><a href="/static/codex.html">Verhaltenscodex</a></li>
-                			<li><a href="/static/terms.html">Nutzungsbedingungen</a></li>
-            			</ul>			
-            			<ul>
-                			<li><a href="/static/privacy.html">Datenschutz</a></li>
-                			<li><a href="/static/imprint.html">impressum</a></li>
-            			</ul>
-        		</div>
-		</div>
-		<div id="page-bottom">&nbsp;</div>
-	</div>
+            </div>
+          </div>
 
-<!-- Piwik -->
-<script type="text/javascript">
-var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.liqd.net/" : "http://stats.liqd.net/");
-document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-</script><script type="text/javascript">
-try {
-var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 7);
-piwikTracker.trackPageView();
-piwikTracker.enableLinkTracking();
-} catch( err ) {}
-</script><noscript><p><img src="http://stats.liqd.net/piwik.php?idsite=7" style="border:0" alt="" /></p></noscript>
-<!-- End Piwik Tracking Code -->
-</body>
+          <aside>
+          <div id="col3">
+            <div id="col3_content" class="clearfix">
+            </div>
+            <!-- IE Column Clearing -->
+            <div id="ie_clearing"> &nbsp; </div>
+          </div>
+          </aside>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Fixme: Here to render error pages -->
+    <div id="piwik">
+      <!-- Piwik: no piwik site -->
+    </div>
+    <footer>
+    <div id="footer">
+      <div class="page_margins">
+        <div class="page_wrapper">
+          <div id="footer_line">
+            <div id="second_footer_line" class="subcolumns" role="complementary">
+              <div class="c33l footer_content">
+                <ul>
+                  <li><a class="staticlink_about" href="http://test.adhocracy.lan:5002/static/about.html">
+                    Wie funktioniert Adhocracy?
+                  </a></li>
+                  <li><a class="staticlink_codex" href="http://test.adhocracy.lan:5002/static/codex.html">
+                    Verhaltenscodex
+                  </a></li>
+                  <li><a class="staticlink_terms" href="http://test.adhocracy.lan:5002/static/terms.html">
+                    Nutzungsbedingungen
+                  </a></li>
+                </ul>
+              </div>
+
+              <div class="c33l footer_content">
+                <ul>
+                  <li><a class="staticlink_privacy" href="http://test.adhocracy.lan:5002/static/privacy.html">
+                    Datenschutz
+                  </a></li>
+                  <li><a class="staticlink_imprint" href="http://test.adhocracy.lan:5002/static/imprint.html">
+                    impressum
+                  </a></li>
+                </ul>
+              </div>
+
+              <div class="c33r footer_content">
+                <div class="subcr">
+                  <div class="footer_box">
+                    <div class="subcolumns">
+                      <h3>Diese Plattform wird betrieben mit</h3>
+                      <p><a href="http://code.adhocracy.de/" title="AdhocracyCode"><img src="./index_files/logo_adhocracy_code_footer.png" alt="AdhocracyCode"></a></p>
+                      <p>
+                      <a href="http://creativecommons.org/licenses/by/3.0/de/" rel="license"><img src="./index_files/80x15.png" alt="Creative Commons License"></a>
+                      <a href="http://www.opendefinition.org/" rel="license"><img src="./index_files/oc_80x15_blue.png" alt="Open Definition"></a>
+                      Vs 1.1
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </footer>
+  </body>
 </html>

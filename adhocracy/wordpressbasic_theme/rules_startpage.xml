@@ -7,18 +7,14 @@
   <!--Content body and sidebar: startpage with merged wordpress-->
   <rules if-content="//*[@class='content-startpage']">
     <!--WARNING: throws error if the wordpress backend is not available-->
-    <replace css:theme-children="#content_header" if="not($wordpress_backend = '')" >
-      <xsl:variable name="url_startpage" select="concat('http://', $wordpress_backend_startseite)"/>
-      <xsl:copy-of select="document($url_startpage)//*[@id='content']//h1"/>
-    </replace>
-    <replace css:theme-children="#mainbar-dummy" if="not($wordpress_backend = '')" >
+    <replace css:content-children="#content" if="not($wordpress_backend = '')" >
       <xsl:variable name="url_startpage" select="concat('http://', $wordpress_backend_startseite)"/>
       <xsl:copy-of select="document($url_startpage)//*[contains(@class, 'entry-content')]/*"/>
     </replace>
-    <append css:theme="#sidebar" if="not($wordpress_backend = '')" >
-      <xsl:variable name="url" select="concat('http://', $wordpress_backend_startseite)"/>
-      <xsl:copy-of select="document($url)//*[@id='primary']/ul/li[position() &lt; 8]/*"/>
-    </append>
+    <!--<append css:content="#col3_content" if="not($wordpress_backend = '')" >-->
+      <!--<xsl:variable name="url" select="concat('http://', $wordpress_backend_startseite)"/>-->
+      <!--<xsl:copy-of select="document($url)//*[@id='primary']/ul/li[position() &lt; 8]/*"/>-->
+    <!--</append>-->
   </rules>
 
 </rules>

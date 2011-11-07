@@ -6,21 +6,17 @@
 
   <rules if-path="/_pages" >
     <!--WARNING: throws error if the wordpress backend is not available-->
-    <replace css:theme-children="#content_header" >
-      <xsl:variable name="url_path" select="substring-after($path, '/_pages/')"/>
-      <xsl:variable name="url_page" select="concat('http://', $wordpress_backend, '/', $url_path)"/>
-      <xsl:copy-of select="document($url_page)//*[@id='content']//h1"/>
-    </replace>
-    <replace css:theme-children="#mainbar-dummy" >
+    <replace css:content-children="#col1_content" >
       <xsl:variable name="url_path" select="substring-after($path, '/_pages/')"/>
       <xsl:variable name="url_page" select="concat('http://', $wordpress_backend, '/', $url_path)"/>
       <xsl:copy-of select="document($url_page)//*[contains(@class, 'entry-content')]/*"/>
     </replace>
-    <append css:theme="#sidebar">
+    <replace css:content="#col3_content">
       <xsl:variable name="url_path" select="substring-after($path, '/_pages/')"/>
       <xsl:variable name="url_page" select="concat('http://', $wordpress_backend, '/', $url_path)"/>
-      <xsl:copy-of select="document($url_page)//*[@id='secondary']/ul/li[position() &lt; 8]/*"/>
-    </append>
+      <!--<xsl:copy-of select="document($url_page)//*[@id='secondary']/ul/li[position() &lt; 8]/*"/>-->
+      <xsl:copy-of select="document($url_page)//*[@id='secondary']"/>
+    </replace>
   </rules>  
 
 </rules>
