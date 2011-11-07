@@ -16,7 +16,8 @@
     <!-- Head: base tag -->                                           
     <replace theme="/html/head/base" content="/html/head/base" />    
     <!-- Head: styles and scripts-->                                              
-    <replace theme="/html/head/*" content="/html/head/*" />
+    <drop theme="/html/head/*" />
+    <append theme="/html/head" content="/html/head/*" />
     <!--TODO copy comments-->
 
     <!--Fix wordpress links -->

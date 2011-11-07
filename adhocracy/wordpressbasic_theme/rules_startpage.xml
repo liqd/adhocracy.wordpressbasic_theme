@@ -11,10 +11,16 @@
       <xsl:variable name="url_startpage" select="concat('http://', $wordpress_backend_startseite)"/>
       <xsl:copy-of select="document($url_startpage)//*[contains(@class, 'entry-content')]/*"/>
     </replace>
-    <!--<append css:content="#col3_content" if="not($wordpress_backend = '')" >-->
-      <!--<xsl:variable name="url" select="concat('http://', $wordpress_backend_startseite)"/>-->
-      <!--<xsl:copy-of select="document($url)//*[@id='primary']/ul/li[position() &lt; 8]/*"/>-->
-    <!--</append>-->
+
+    <!--TODO: HACK to test it the wordpress ui tab js-->
+    <replace css:content-children="#piwik">
+      <xsl:variable name="url_startpage" select="concat('http://', $wordpress_backend_startseite)"/>
+      <xsl:copy-of select="document($url_startpage)/html/body/script[position() &gt; 1]"/> 
+    </replace>
+    <append theme="/html/head">
+      <xsl:variable name="url_startpage" select="concat('http://', $wordpress_backend_startseite)"/>
+      <xsl:copy-of select="document($url_startpage)/html/head/link[contains(@href, '.ui.')]"/> 
+    </append>    
   </rules>
 
 </rules>
