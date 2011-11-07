@@ -1,0 +1,74 @@
+<rules
+  xmlns="http://namespaces.plone.org/diazo"
+  xmlns:css="http://namespaces.plone.org/diazo/css"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <theme href="index.html" />
+
+  <!--do not theme ajax requests-->
+  <xi:include href="rules_notheme.xml" />
+
+  <rules css:if-content="#frame">
+
+    <!-- Head: title -->                                               
+    <xi:include href="rules_header.xml" />
+    <!-- Head: base tag -->                                            
+    <replace theme="/html/head/base" content="/html/head/base" />      
+    <!-- Head: styles and scripts-->                                               
+    <drop theme="/html/head/meta" /> 
+    <append theme="/html/head" content="/html/head/meta" /> 
+    <drop theme="/html/head/link" /> 
+    <append theme="/html/head" content="/html/head/link" /> 
+    <drop theme="/html/head/script" /> 
+    <append theme="/html/head" content="/html/head/script" /> 
+    <!--TODO copy comments-->
+
+    <!--Fix wordpress links -->
+    <xi:include href="rules_fixlinks.xml" />
+
+    <!--Header & Navigation-->
+    <replace css:theme="#account" css:content="#account" /> 
+    <drop css:theme-children="#navigation" />
+    <append css:theme="#navigation">
+      <xsl:for-each select="//*[@id='navigation']/a">	
+        <xsl:copy-of select="." /><xsl:text disable-output-escaping="yes"> | </xsl:text>
+      </xsl:for-each>
+    </append>
+    <append css:theme="#navigation" css:content="#navigation div" /> 
+
+    <!--Instance Header-->
+    <replace css:theme="#instanceheader" css:content="#instanceheader" /> 
+    <replace css:theme="#instance_infobox_wrapper" css:content="#instance_infobox_wrapper" /> 
+    <!--Breadcrumbs-->
+    <replace css:theme="#breadcrumbs" css:content="#breadcrumbs" /> 
+    <replace css:theme="#flash_messages_wrapper" css:content="#flash_messages_wrapper" /> 
+
+    <!--Content body and sidebar: default-->
+    <rules if-content="not(//*[@class='content-startpage']) and not(contains($path, '_pages'))">
+      <replace css:theme="#content" css:content=".content" /> 
+    </rules>
+
+    <!--Content body and sidebar: startpage with merged wordpress-->
+    <rules if-content="//*[@class='content-startpage']">
+
+      <xi:include href="rules_startpage.xml" />
+
+      <!--Timeline Milestones-->
+      <after css:theme-children="#mainbar-dummy" css:content="#content script"/>
+      <after css:theme-children="#mainbar-dummy" css:content="#timeline"/>
+      <!--Workaround to handle bad wordpress html-->
+      <after css:theme-children="#mainbar-dummy" >
+        <p><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></p>
+      </after>
+    </rules>
+
+    <!--Content body and sidebar: wordpress pages (/_pages)-->
+    <xi:include href="rules_pages.xml" />
+   
+    <!--Footer-->
+    <replace css:theme="#links" css:content="#footer" />
+
+  </rules>   
+</rules>
+

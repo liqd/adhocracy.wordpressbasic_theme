@@ -1,0 +1,25 @@
+<rules
+  xmlns="http://namespaces.plone.org/diazo"
+  xmlns:css="http://namespaces.plone.org/diazo/css"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmls:xi="http://www.w3.org/2001/XInclude">
+
+  <!--Content body and sidebar: startpage with merged wordpress-->
+  <rules if-content="//*[@class='content-startpage']">
+    <!--WARNING: throws error if the wordpress backend is not available-->
+    <replace css:theme-children="#content_header" if="not($wordpress_backend = '')" >
+      <xsl:variable name="url_startpage" select="concat('http://', $wordpress_backend_startseite)"/>
+      <xsl:copy-of select="document($url_startpage)//*[@id='content']//h1"/>
+    </replace>
+    <replace css:theme-children="#mainbar-dummy" if="not($wordpress_backend = '')" >
+      <xsl:variable name="url_startpage" select="concat('http://', $wordpress_backend_startseite)"/>
+      <xsl:copy-of select="document($url_startpage)//*[contains(@class, 'entry-content')]/*"/>
+    </replace>
+    <append css:theme="#sidebar" if="not($wordpress_backend = '')" >
+      <xsl:variable name="url" select="concat('http://', $wordpress_backend_startseite)"/>
+      <xsl:copy-of select="document($url)//*[@id='primary']/ul/li[position() &lt; 8]/*"/>
+    </append>
+  </rules>
+
+</rules>
+
