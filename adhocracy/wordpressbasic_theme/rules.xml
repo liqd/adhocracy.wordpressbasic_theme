@@ -17,13 +17,13 @@
     <replace theme="/html/head/base" content="/html/head/base" />    
     <!-- Head: styles and scripts-->                                              
     <drop theme="/html/head/link | /html/head/style | /html/head/script | /html/head/meta" />
-    <append theme="/html/head" content="/html/head/meta | /html/head/link | /html/head/style | /html/head/script" />
-     <!--Conditional comments-->
+    <append theme="/html/head" content="/html/head/meta | /html/head/link | /html/head/style" />
     <append theme="/html/head">
       <xsl:for-each select="/html/head/comment()">
         <xsl:copy />
       </xsl:for-each>
     </append>
+    <append theme="/html/head" content="/html/head/script" />
 
     <!--Fix wordpress links -->
     <xi:include href="rules_fixlinks.xml" />
