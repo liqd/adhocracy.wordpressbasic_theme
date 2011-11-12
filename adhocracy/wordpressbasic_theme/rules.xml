@@ -31,13 +31,8 @@
     <replace css:theme="body" css:content="body" />
     
     <!--Content body and sidebar: startpage with merged wordpress-->
-    <rules if-content="//*[@class='content-startpage']">
-
+    <rules if-content="//*[@id='content-startpage']">
       <xi:include href="rules_startpage.xml" />
-
-      <!--Timeline Milestones-->
-      <after css:theme-children="#mainbar-dummy" css:content="#content script"/>
-      <after css:theme-children="#mainbar-dummy" css:content="#timeline"/>
     </rules>
 
     <!--Content body and sidebar: wordpress pages (/_pages)-->
