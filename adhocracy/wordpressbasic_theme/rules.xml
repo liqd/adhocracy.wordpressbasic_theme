@@ -4,7 +4,7 @@
   xmlns:xi="http://www.w3.org/2001/XInclude"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <theme href="index.html" if-content="not(//*[@id=main])"/>
+  <theme href="index.html" />
 
   <!--do not theme ajax requests-->
   <xi:include href="rules_notheme.xml" />

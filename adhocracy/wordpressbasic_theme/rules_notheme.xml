@@ -6,6 +6,6 @@
 
   <!-- Do not theme ajax responses when filtering the proposals with the autocomplete widget -->
   <notheme if-path="/proposal/filter" />
-  <notheme if-content="not(//*[@id=main])"/>
+  <notheme if-content="not(//*[@id='main'])" />
 
 </rules>
