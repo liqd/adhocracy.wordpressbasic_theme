@@ -28,7 +28,17 @@
       <xsl:variable name="url_startpage" select="concat('http://', $wordpress_backend_startseite)"/>
       <xsl:copy-of select="document($url_startpage)/html/head/link[contains(@href, '.ui.')]"/> 
     </before>      
-  </rules>  
+
+    <!--Set top navigation current class right-->
+    <rules if-path="/_pages/about">
+      <replace content="//*[@id='nav_about']/attribute::class"><xsl:attribute name="class">current</xsl:attribute></replace>
+      <replace content="//*[@id='nav_home']/attribute::class"><xsl:attribute name="class"></xsl:attribute></replace>
+    </rules> 
+    <rules if-path="/_pages/help">
+      <replace content="//*[@id='nav_help']/attribute::class"><xsl:attribute name="class">current</xsl:attribute></replace>
+      <replace content="//*[@id='nav_home']/attribute::class"><xsl:attribute name="class"></xsl:attribute></replace>
+    </rules>     
+  </rules> 
 
 </rules>
 
