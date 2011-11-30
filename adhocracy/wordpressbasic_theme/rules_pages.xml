@@ -6,6 +6,10 @@
 
   <rules if-path="/_pages" >
 
+    <!--Drop flash message and instance subheader-->
+    <drop css:content="#flash_message" />
+    <drop css:content="#subheader" />
+
     <!--WARNING: throws error if the wordpress backend is not available-->
     <!--Merge wordpress content section-->
     <replace css:content-children="#col1_content" >
@@ -33,10 +37,12 @@
     <rules if-path="/_pages/about">
       <replace content="//*[@id='nav_about']/attribute::class"><xsl:attribute name="class">current</xsl:attribute></replace>
       <replace content="//*[@id='nav_home']/attribute::class"><xsl:attribute name="class"></xsl:attribute></replace>
+      <replace content="//*[@id='nav_instances']/attribute::class"><xsl:attribute name="class"></xsl:attribute></replace>
     </rules> 
     <rules if-path="/_pages/help">
       <replace content="//*[@id='nav_help']/attribute::class"><xsl:attribute name="class">current</xsl:attribute></replace>
       <replace content="//*[@id='nav_home']/attribute::class"><xsl:attribute name="class"></xsl:attribute></replace>
+      <replace content="//*[@id='nav_instances']/attribute::class"><xsl:attribute name="class"></xsl:attribute></replace>
     </rules>     
   </rules> 
 
