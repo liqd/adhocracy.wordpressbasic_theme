@@ -15,16 +15,6 @@
        <p><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></p>
     </replace>
 
-    <!--Merge in wordpress javascript to generate tabs-->
-    <replace css:content-children="#external_scripts">
-       <xsl:variable name="url_startpage" select="concat('http://', $wordpress_backend_startseite)"/>
-       <xsl:copy-of select="document($url_startpage)/html/body/script[position() &gt; 1]"/>
-    </replace>
-    <before theme="/html/head/link[last()]">
-      <xsl:variable name="url_startpage" select="concat('http://', $wordpress_backend_startseite)"/>
-      <xsl:copy-of select="document($url_startpage)/html/head/link[contains(@href, '.ui.')]"/> 
-    </before>    
-
   </rules>
 
 </rules>
