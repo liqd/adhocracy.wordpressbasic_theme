@@ -4,11 +4,11 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmls:xi="http://www.w3.org/2001/XInclude">
 
-  <replace theme="/html/head/title" content="/html/head/title" if="not(contains($path, '/_pages'))" />    
+  <replace theme="/html/head/title" content="/html/head/title" if="not(contains($path, '/_pages'))" />
   <replace theme="/html/head/title" if-path="/_pages">
     <xsl:variable name="url_path" select="substring-after($path, '/_pages/')"/>
     <xsl:variable name="url_page" select="concat('http://', $wordpress_backend, '/', $url_path)"/>
     <xsl:copy-of select="document($url_page)/html/head/title"/>
-  </replace>  
+  </replace>
 
 </rules>
