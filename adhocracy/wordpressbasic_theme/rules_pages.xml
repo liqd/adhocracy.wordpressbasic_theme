@@ -7,8 +7,8 @@
   <rules if-path="/_pages" >
 
     <!--Drop flash message and instance subheader-->
-    <drop css:content="#flash_message" />
-    <drop css:content="#subheader" />
+    <drop css:content="div#flash_message" />
+    <drop css:content="div#subheader" />
 
     <!--WARNING: throws error if the wordpress backend is not available-->
     <!--Merge wordpress content section-->
@@ -30,21 +30,21 @@
     </replace>
     <before theme="/html/head/link[last()]">
       <xsl:variable name="url_startpage" select="concat('http://', $wordpress_backend_startseite)"/>
-      <xsl:copy-of select="document($url_startpage)/html/head/link[contains(@href, '.ui.')]"/> 
-    </before>      
+      <xsl:copy-of select="document($url_startpage)/html/head/link[contains(@href, '.ui.')]"/>
+    </before>
 
     <!--Set top navigation current class right-->
     <rules if-path="/_pages/about">
-      <replace content="//*[@id='nav_about']/attribute::class"><xsl:attribute name="class">current</xsl:attribute></replace>
-      <replace content="//*[@id='nav_home']/attribute::class"><xsl:attribute name="class"></xsl:attribute></replace>
-      <replace content="//*[@id='nav_instances']/attribute::class"><xsl:attribute name="class"></xsl:attribute></replace>
-    </rules> 
+      <replace content="//li[@id='nav_about']/attribute::class"><xsl:attribute name="class">current</xsl:attribute></replace>
+      <replace content="//li[@id='nav_home']/attribute::class"><xsl:attribute name="class"></xsl:attribute></replace>
+      <replace content="//li[@id='nav_instances']/attribute::class"><xsl:attribute name="class"></xsl:attribute></replace>
+    </rules>
     <rules if-path="/_pages/help">
-      <replace content="//*[@id='nav_help']/attribute::class"><xsl:attribute name="class">current</xsl:attribute></replace>
-      <replace content="//*[@id='nav_home']/attribute::class"><xsl:attribute name="class"></xsl:attribute></replace>
-      <replace content="//*[@id='nav_instances']/attribute::class"><xsl:attribute name="class"></xsl:attribute></replace>
-    </rules>     
-  </rules> 
+      <replace content="//li[@id='nav_help']/attribute::class"><xsl:attribute name="class">current</xsl:attribute></replace>
+      <replace content="//li[@id='nav_home']/attribute::class"><xsl:attribute name="class"></xsl:attribute></replace>
+      <replace content="//li[@id='nav_instances']/attribute::class"><xsl:attribute name="class"></xsl:attribute></replace>
+    </rules>
+  </rules>
 
 </rules>
 

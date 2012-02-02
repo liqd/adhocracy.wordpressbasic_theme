@@ -5,12 +5,12 @@
   xmls:xi="http://www.w3.org/2001/XInclude">
 
   <!--Fix wordpress links -->
-  <replace content="//*[contains(@href, '/static/codex.html')]/attribute::href" ><xsl:attribute name="href">/_pages/codex</xsl:attribute></replace>
-  <replace content="//*[contains(@href, '/static/help.html')]/attribute::href" ><xsl:attribute name="href">/_pages/help</xsl:attribute></replace>
-  <replace content="//*[contains(@href, '/static/about.html')]/attribute::href" ><xsl:attribute name="href">/_pages/about</xsl:attribute></replace>
-  <replace content="//*[contains(@href, '/static/terms.html')]/attribute::href" ><xsl:attribute name="href">/_pages/terms</xsl:attribute></replace>
-  <replace content="//*[contains(@href, '/static/privacy.html')]/attribute::href" ><xsl:attribute name="href">/_pages/privacy</xsl:attribute></replace>
-  <replace content="//*[contains(@href, '/static/imprint.html')]/attribute::href" ><xsl:attribute name="href">/_pages/imprint</xsl:attribute></replace>
+  <replace content="//a[contains(@href, '/static/codex.html')]/attribute::href" ><xsl:attribute name="href">/_pages/codex</xsl:attribute></replace>
+  <replace content="//a[contains(@href, '/static/help.html')]/attribute::href" ><xsl:attribute name="href">/_pages/help</xsl:attribute></replace>
+  <replace content="//a[contains(@href, '/static/about.html')]/attribute::href" ><xsl:attribute name="href">/_pages/about</xsl:attribute></replace>
+  <replace content="//a[contains(@href, '/static/terms.html')]/attribute::href" ><xsl:attribute name="href">/_pages/terms</xsl:attribute></replace>
+  <replace content="//a[contains(@href, '/static/privacy.html')]/attribute::href" ><xsl:attribute name="href">/_pages/privacy</xsl:attribute></replace>
+  <replace content="//a[contains(@href, '/static/imprint.html')]/attribute::href" ><xsl:attribute name="href">/_pages/imprint</xsl:attribute></replace>
 
 </rules>
 
