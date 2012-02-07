@@ -24,6 +24,7 @@ setup(name='adhocracy.wordpressbasic_theme',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'adhocracy',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
