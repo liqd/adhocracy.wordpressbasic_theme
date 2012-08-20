@@ -2,7 +2,7 @@
   xmlns="http://namespaces.plone.org/diazo"
   xmlns:css="http://namespaces.plone.org/diazo/css"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmls:xi="http://www.w3.org/2001/XInclude">
+  xmlns:xi="http://www.w3.org/2001/XInclude">
 
   <rules if-path="/_pages" >
 
