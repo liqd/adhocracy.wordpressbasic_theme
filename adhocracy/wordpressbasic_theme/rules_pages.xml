@@ -14,22 +14,22 @@
     <!--Merge wordpress content section-->
     <replace css:content-children="#col1_content" >
       <xsl:variable name="url_path" select="substring-after($path, '/_pages/')"/>
-      <xsl:variable name="url_page" select="concat('http://', $wordpress_backend, '/', $url_path)"/>
+      <xsl:variable name="url_page" select="concat( $backend, '/', $url_path)"/>
       <xsl:copy-of select="document($url_page)//*[contains(@class, 'entry-content')]/*"/>
     </replace>
     <replace css:content="#col3_content">
       <xsl:variable name="url_path" select="substring-after($path, '/_pages/')"/>
-      <xsl:variable name="url_page" select="concat('http://', $wordpress_backend, '/', $url_path)"/>
+      <xsl:variable name="url_page" select="concat( $backend, '/', $url_path)"/>
       <xsl:copy-of select="document($url_page)//*[@id='secondary']"/>
     </replace>
 
     <!--Merge in wordpress javascript to generate tabs-->
     <replace css:content-children="#external_scripts">
-       <xsl:variable name="url_startpage" select="concat('http://', $wordpress_backend_startseite)"/>
+      <xsl:variable name="url_startpage" select="concat( $backend, '/startseite/')"/>
        <xsl:copy-of select="document($url_startpage)/html/body/script[position() &gt; 1]"/>
     </replace>
     <before theme="/html/head/link[last()]">
-      <xsl:variable name="url_startpage" select="concat('http://', $wordpress_backend_startseite)"/>
+      <xsl:variable name="url_startpage" select="concat( $backend, '/startseite/')"/>
       <xsl:copy-of select="document($url_startpage)/html/head/link[contains(@href, '.ui.')]"/>
     </before>
 
