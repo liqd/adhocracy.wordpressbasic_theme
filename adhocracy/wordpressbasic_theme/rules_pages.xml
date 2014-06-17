@@ -12,18 +12,16 @@
 
     <!--WARNING: throws error if the wordpress backend is not available-->
     <!--Merge wordpress content section-->
-    <replace css:content-children="#col1_content" >
+    <replace css:content-children="#col1" >
       <xsl:variable name="url_path" select="substring-after($path, '/_pages/')"/>
       <xsl:variable name="url_page" select="concat('http://', $wordpress_backend, '/', $url_path)"/>
       <xsl:copy-of select="document($url_page)//*[contains(@class, 'entry-content')]/*"/>
     </replace>
-    <replace css:content="#col3_content">
-      <div id="col3_content">
-        <div class="sidebar_box">
-          <xsl:variable name="url_path" select="substring-after($path, '/_pages/')"/>
-          <xsl:variable name="url_page" select="concat('http://', $wordpress_backend, '/', $url_path)"/>
-          <xsl:copy-of select="document($url_page)//*[@id='secondary']//*[contains(@class, 'subpages')]"/>
-        </div>
+    <replace css:content-children="#sidebar">
+      <div class="sidebar_box">
+        <xsl:variable name="url_path" select="substring-after($path, '/_pages/')"/>
+        <xsl:variable name="url_page" select="concat('http://', $wordpress_backend, '/', $url_path)"/>
+        <xsl:copy-of select="document($url_page)//*[@id='secondary']//*[contains(@class, 'subpages')]"/>
       </div>
     </replace>
 
