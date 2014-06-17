@@ -18,11 +18,13 @@
       <xsl:copy-of select="document($url_page)//*[contains(@class, 'entry-content')]/*"/>
     </replace>
     <replace css:content-children="#sidebar">
-      <div class="sidebar_box">
-        <xsl:variable name="url_path" select="substring-after($path, '/_pages/')"/>
-        <xsl:variable name="url_page" select="concat('http://', $wordpress_backend, '/', $url_path)"/>
-        <xsl:copy-of select="document($url_page)//*[@id='secondary']//*[contains(@class, 'subpages')]"/>
-      </div>
+      <xsl:variable name="url_path" select="substring-after($path, '/_pages/')"/>
+      <xsl:variable name="url_page" select="concat('http://', $wordpress_backend, '/', $url_path)"/>
+      <xsl:if test="document($url_page)//*[@id='secondary']//*[contains(@class, 'subpages')]">
+        <div class="sidebar_box">
+          <xsl:copy-of select="document($url_page)//*[@id='secondary']//*[contains(@class, 'subpages')]"/>
+        </div>
+      </xsl:if>
     </replace>
 
     <!--Merge in wordpress javascript to generate tabs-->
